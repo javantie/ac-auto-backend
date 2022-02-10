@@ -2,7 +2,7 @@
 //set-up the server here by imnporing express and other modules
 const express = require('express');
 const mongoose = require('mongoose');
-const session = requier('express-session')
+const session = require('express-session')
 
 //create the server
 const app = express();
@@ -18,7 +18,6 @@ app.use(express.static('public'));
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/acauto', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false
 });
 
 //set up the session
@@ -33,10 +32,10 @@ app.use(session({
 mongoose.set('debug', true);
 
 //set up the routes
-app.use('/api/users', require('./routes/api/users'));
-app.use('/api/cars', require('./routes/api/cars'));
-app.use('/api/reviews', require('./routes/api/reviews'));
-app.use('/api/auth', require('./routes/api/auth'));
+// app.use('/api/users', require('./routes/api/users'));
+// app.use('/api/cars', require('./routes/api/cars'));
+// app.use('/api/reviews', require('./routes/api/reviews'));
+// app.use('/api/auth', require('./routes/api/auth'));
 
 //start the server
 app.listen(PORT, () => console.log(`🌍 Connected on localhost:${PORT}`));
